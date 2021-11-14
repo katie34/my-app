@@ -49,11 +49,17 @@ class AccountBalance extends Component {
 
 export default AccountBalance;
 
-render (
+render() {
+
+  const HomeComponent = () => (<Home accountBalance={this.state.accountBalance}/>);
+
+return (
   <Router>
-    <Switch>
+    <Switch> //is it div or switch?
       <Route exact path="/" component={<Home accountBalance={this.state.accountBalance}/>}/>
+      <Route exact path="/" render={HomeComponent}/>
     </Switch>
   </Router>
-)
+);
+}
 
