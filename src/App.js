@@ -6,7 +6,6 @@ import AccountBalance from './AccountBalance';
 class App extends Component {
   constructor() {
     super();
-
     this.state = {
       accountBalance: 14568.27
     }
@@ -35,19 +34,8 @@ class Home extends Component {
     );
   }
 }
-export default Home;
-
-class AccountBalance extends Component {
-  render() {
-    return (
-      <div>
-        Balance: {this.props.accountBalance}
-      </div>
-    )
-  }
-}
-
-export default AccountBalance;
+//export default Home;
+//export default AccountBalance;
 
 render() {
 
