@@ -7,8 +7,13 @@ import UserProfile from './components/UserProfile';
 class App extends Component {
   constructor() {
     super();
+
     this.state = {
       accountBalance: 14568.27
+      currentUser: {
+        userName: 'joe_shmo',
+        memberSince: '07/23/96',
+      }
     }
   } 
 
@@ -56,4 +61,4 @@ return (
 );
 }
 
-
+export default App;
