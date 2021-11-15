@@ -26,41 +26,29 @@ class App extends Component {
     newUser.userName = logInInfo.userName
     this.setState({currentUser: newUser})
   }
-
-  render() {
-    return (
-      <Router>
-        <div className="App">
-          Hello, World!
-        </div>
-      </Router>
-    );
-  }
-}
 //export default App;
-
 // src/components/Home.js
 //export default Home;
 //export default AccountBalance;
 
-render() {
+  render() {
 
-  const HomeComponent = () => (<Home accountBalance={this.state.accountBalance}/>);
-  const UserProfileComponent = () =>(
-    <UserProfile userName = {this.state.currentUser.userName} memberSince = {this.state.currentUser.memberSince} />
+    const HomeComponent = () => (<Home accountBalance={this.state.accountBalance}/>);
+    const UserProfileComponent = () =>(
+      <UserProfile userName = {this.state.currentUser.userName} memberSince = {this.state.currentUser.memberSince} />
+    );
+    const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} {...this.props}/>)
+
+  return (
+    <Router>
+      <Switch> //is it div or switch?
+        <Route exact path="/" component={<Home accountBalance={this.state.accountBalance}/>}/>
+        <Route exact path="/" render={HomeComponent}/>
+        <Route exact path='/userProfile' render={UserProfileComponent} />
+        <Route exact path="/login" render={LogInComponent}/>
+      </Switch>
+    </Router>
   );
-  const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} {...this.props}/>)
-
-return (
-  <Router>
-    <Switch> //is it div or switch?
-      <Route exact path="/" component={<Home accountBalance={this.state.accountBalance}/>}/>
-      <Route exact path="/" render={HomeComponent}/>
-      <Route exact path='/userProfile' render={UserProfileComponent} />
-      <Route exact path="/login" render={LogInComponent}/>
-    </Switch>
-  </Router>
-);
 }
 
 export default App;
