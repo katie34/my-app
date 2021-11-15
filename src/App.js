@@ -6,6 +6,7 @@ import UserProfile from './Components/UserProfile'
 //import {Link} from 'react-router-dom';
 import LogIn from './Components/Login'
 import Debits from './Components/Debits'
+import Credits from './Components/Credits'
     
 class App extends Component {
   constructor() {
@@ -36,10 +37,10 @@ class App extends Component {
 
     const HomeComponent = () => (<Home accountBalance={this.state.accountBalance}/>);
     const UserProfileComponent = () =>(
-      <UserProfile userName = {this.state.currentUser.userName} memberSince = {this.state.currentUser.memberSince} />
-    );
+      <UserProfile userName = {this.state.currentUser.userName} memberSince = {this.state.currentUser.memberSince} />);
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} {...this.props}/>)
-    const DebitsComponent = () => (<Debits accountBalance={this.state.accountBalance} onAmountChange={this.onChange}/>)
+    const DebitsComponent = () => (<Debits accountBalance={this.state.accountBalance} onAmountChange={this.onChange} />)
+    const CreditsComponent =() => (<Credits accountBalance={this.state.accountBalance} onAmountChange={this.onChange} />)
 
   return (
     <Router>
@@ -49,6 +50,7 @@ class App extends Component {
         <Route exact path='/userProfile' render={UserProfileComponent} />
         <Route exact path="/login" render={LogInComponent} />
         <Route exact path="/Debits" render={DebitsComponent} />
+        <Route exact path="/Credits" render={CreditsComponent} />
       </Switch>
     </Router>
   );
