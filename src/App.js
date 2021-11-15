@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Swicth, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './Components/Home';
 //import AccountBalance from './AccountBalance';
 import UserProfile from './Components/UserProfile'
@@ -42,7 +42,7 @@ class App extends Component {
 
   return (
     <Router>
-      <Switch> //is it div or switch?
+      <Switch> 
         <Route exact path="/" component={HomeComponent}/>
         <Route exact path='/userProfile' render={UserProfileComponent} />
         <Route exact path="/login" render={LogInComponent} />
