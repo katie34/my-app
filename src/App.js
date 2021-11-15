@@ -19,6 +19,14 @@ class App extends Component {
     }
   } 
 
+  onChnage = (newName) => {this.setState({accountBalance: newName });}
+
+  mockLogIn = (logInInfo) => {
+    const newUser = {...this.state.currentUser}
+    newUser.userName = logInInfo.userName
+    this.setState({currentUser: newUser})
+  }
+
   render() {
     return (
       <Router>
@@ -32,16 +40,6 @@ class App extends Component {
 //export default App;
 
 // src/components/Home.js
-class Home extends Component {
-  render() {
-    return (
-        <div>
-          <img src="https://i.picsum.photos/id/408/201/201.jpg?hmac=G2DODrvjG9jMtGHJh--DOFmtsQBExiUgINpVR0ARad8" alt="bank"/>
-          <h1>Bank of React</h1>
-        </div>
-    );
-  }
-}
 //export default Home;
 //export default AccountBalance;
 
